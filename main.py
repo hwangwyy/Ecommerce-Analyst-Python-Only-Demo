@@ -2,6 +2,7 @@ import pandas as pd
 import logging
 import streamlit as st
 import plotly.express as px
+import app
 
 from pathlib import Path
 from scripts import downloader
@@ -53,6 +54,7 @@ def main():
     # PHASE: TRANSFORM || GOLD
     df = transformer.to_analytics(df_ls)
     # PHASE: LOAD
+    app.run(df)
 
 if __name__ == "__main__":
     main()

@@ -47,10 +47,6 @@ def clean_orders(df: pd.DataFrame) -> pd.DataFrame:
     logger.info("Formatted OrderDate dtype to date")
     df['Discount'] = df['Discount'].fillna(0)
     logger.info("Filled Discount Null values with 0")
-    df['Discount'] = df['Discount'] * 100
-    df['Discount'] = df['Discount'].astype(str)
-    df['Discount'] = df['Discount'] + '%'
-    logger.info("Formatted Discount to percentage value")
     df = df.dropna(subset='Quantity')
     df['Quantity'] = df['Quantity'].astype(int)
     logger.info("Changed dtype from float to int for Quantity column")

@@ -20,4 +20,4 @@ jobs:
       - name: install-dependencies
         run: pip install -r requirements.txt
       - name: test
-        run: python main.py
+        run: streamlit run main.py
