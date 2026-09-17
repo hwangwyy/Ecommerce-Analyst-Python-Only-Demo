@@ -1,8 +1,5 @@
 import pandas as pd
 import logging
-import streamlit as st
-import plotly.express as px
-import app
 
 from pathlib import Path
 from scripts import downloader
@@ -54,7 +51,9 @@ def main():
     # PHASE: TRANSFORM || GOLD
     df = transformer.to_analytics(df_ls)
     # PHASE: LOAD
-    app.run(df)
+    path=Path('data/transformed/')
+    path.mkdir(parents=True, exist_ok=True)
+    df.to_csv(f'{path}/final.csv')
 
 if __name__ == "__main__":
     main()
